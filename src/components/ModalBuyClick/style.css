@@ -1,0 +1,134 @@
+.backdoor {
+    position: absolute;
+    top: -150px;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(34, 34, 34, 0.63);
+    z-index: 999;
+
+}
+
+
+.modal {
+    position: relative;
+    display: block;
+    padding: 25px 20px;
+    width: 400px;
+    height: fit-content;
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 2px 2px 2px 2px rgba(116, 116, 116, 0.568);
+}
+
+.bush {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+
+.form {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inputModal {
+    display: block;
+    margin-top: 15px;
+    width: 70%;
+    height: 24px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    box-shadow: 1px 1px 1px 1px rgb(102, 102, 102);
+    outline: transparent;
+    transition: .2s;
+}
+
+.inputModal:focus {
+    border: 1px solid #222;
+    background-color: #222;
+    color: #fff;
+}
+
+.close {
+    display: block;
+    position: absolute;
+    right: 25px;
+    background-color: #222;
+    box-shadow: none;
+    border: none;
+    color: #fff;
+    line-height: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.radioBtns {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    transform: translateX(30px);
+}
+
+.radioBtns>input {
+    width: 1px;
+    height: 1px;
+    background-color: transparent;
+    border: transparent;
+    position: relative;
+}
+
+.radioBtns>label {
+    cursor: pointer;
+    position: relative;
+    margin-top: 20px;
+
+}
+
+.radioBtns>label::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-color: #222;
+    position: absolute;
+    left: -30px;
+    border-radius: 4px;
+}
+
+.radioBtns>input:checked::after {
+    content: '';
+    display: block;
+    width: 14px;
+    height: 14px;
+    background-color: rgb(235, 235, 235);
+    position: absolute;
+    top: 24px;
+    left: -32px;
+    border-radius: 4px;
+    z-index: 2;
+
+}
+
+.submit {
+    margin-top: 40px;
+    padding: 10px 30px;
+    font-size: 20px;
+    letter-spacing: 2px;
+    background-color: #222;
+    color: #fff;
+    border: 1px solid #222;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.submit:hover {
+    background-color: #fff;
+    color: #222;
+}
