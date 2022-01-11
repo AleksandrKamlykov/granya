@@ -1,0 +1,136 @@
+.cart-wrapper {
+    width: 80%;
+    padding: 20px;
+    display: grid;
+    grid-template: 1fr/ 60% 40%;
+    gap: 40px;
+}
+
+.order-list {
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.order-item {
+    width: 100%;
+    list-style: none;
+    display: grid;
+    grid-template: 1fr/ 25% 30% 10% 10% 20% 4%;
+    line-height: 20px;
+    font-size: 20px;
+    font-weight: 300;
+    height: fit-content;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #222;
+    align-items: center;
+}
+
+.order-item>span {
+    text-align: center;
+}
+
+.photo-cart {
+    width: 80px;
+    display: block;
+}
+
+.total {
+    text-align: right;
+    /* grid-area: 2 / 1 /2 /1; */
+}
+
+.formCart {
+    margin-top: 50px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.inputCart {
+    display: block;
+    margin-top: 15px;
+    width: 70%;
+    height: 24px;
+    border: 1px solid transparent;
+    /*border-radius: 4px;
+    box-shadow: 1px 1px 1px 1px rgb(102, 102, 102); */
+    border-bottom: 1px solid #222;
+    outline: transparent;
+    transition: .2s;
+}
+
+.inputCart:focus {
+    border: 1px solid #222;
+    background-color: #222;
+    color: #fff;
+}
+
+.radioBtnsCart {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    transform: translateX(30px);
+}
+
+.radioBtnsCart>input {
+    width: 1px;
+    height: 1px;
+    background-color: transparent;
+    border: transparent;
+    position: relative;
+}
+
+.radioBtnsCart>label {
+    cursor: pointer;
+    position: relative;
+    margin-top: 20px;
+
+}
+
+.radioBtnsCart>label::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-color: #222;
+    position: absolute;
+    left: -30px;
+    border-radius: 4px;
+}
+
+.radioBtnsCart>input:checked::after {
+    content: '';
+    display: block;
+    width: 14px;
+    height: 14px;
+    background-color: rgb(235, 235, 235);
+    position: absolute;
+    top: 24px;
+    left: -32px;
+    border-radius: 4px;
+    z-index: 2;
+
+}
+
+.submitCart {
+    margin-top: 40px;
+    padding: 10px 30px;
+    font-size: 20px;
+    letter-spacing: 2px;
+    background-color: #222;
+    color: #fff;
+    border: 1px solid #222;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.submitCart:hover {
+    background-color: #fff;
+    color: #222;
+}

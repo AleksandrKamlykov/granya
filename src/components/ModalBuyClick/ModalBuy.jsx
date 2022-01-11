@@ -1,11 +1,12 @@
 import React from 'react';
 import './style.css'
+import { useHttp } from '../../hooks/http.hook';
 
 export const ModalBuy = ({ closeModal, product }) => {
     const { name, link, sizes, price, article } = product
+    const { request, loading } = useHttp()
 
-
-    function submitForm(e) {
+    async function submitForm(e) {
         let name = e.target.name.value
         let surName = e.target.surName.value
         let phone = e.target.phone.value
@@ -20,7 +21,7 @@ export const ModalBuy = ({ closeModal, product }) => {
        `
         e.preventDefault();
 
-        fetch(`https://api.telegram.org/bot1831614888:AAE41QAzdDu67eYpu-vLPrny0lb4Oy46_TE/sendMessage?chat_id=359806396&text=${res}`)
+        await request(`https://api.telegram.org/bot1831614888:AAE41QAzdDu67eYpu-vLPrny0lb4Oy46_TE/sendMessage?chat_id=359806396&text=${res}`)
     }
     return (
         <div className="backdoor">

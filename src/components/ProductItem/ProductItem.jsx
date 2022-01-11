@@ -3,7 +3,7 @@ import './style.css'
 import { useParams } from "react-router-dom";
 import { allProducts } from "../data";
 import { ModalBuy } from "../ModalBuyClick/ModalBuy";
-
+import { useDispatch } from "react-redux";
 import gridSizes from '../../img/photos/sizes.jpeg'
 
 import imgOther1 from '../../img/catalog-test/1.jpg'
@@ -12,12 +12,15 @@ import imgOther3 from '../../img/catalog-test/3.jpg'
 import imgOther4 from '../../img/catalog-test/4.jpg'
 
 export const ProductItem = () => {
+    const dispatch = useDispatch()
+
     const param = useParams();
     const { id } = param;
     const [isOpenModal, setIsOpenModal] = useState(false)
 
     const openProduct = allProducts.find(elem => elem.id == id);
     const { name, link, sizes, price, article } = openProduct
+
 
 
     const otherList = [imgOther1, imgOther2, imgOther3, imgOther4]
@@ -30,6 +33,9 @@ export const ProductItem = () => {
         document.querySelector('body').style.overflow = 'hidden'
     } else document.querySelector('body').style.overflow = 'scroll'
 
+    function addtoCart() {
+        dispatch({ type: 'addToCart', payload: { order: openProduct } })
+    }
     return (
         <>
             {isOpenModal ? <ModalBuy product={openProduct} closeModal={ModalHandler} /> : null}
@@ -71,7 +77,7 @@ export const ProductItem = () => {
                         <img className="grid-sizes" src={gridSizes} alt="Сетка размеров" />
                     </div>
                     <div className="buttons-buy">
-                        <button className="btn-buy">Добавить в корзину</button>
+                        <button onClick={addtoCart} className="btn-buy">Добавить в корзину</button>
                         <button onClick={ModalHandler} className="btn-buy">Купить в один клик</button>
                     </div>
                 </div>
