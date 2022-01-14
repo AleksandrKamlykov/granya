@@ -4,7 +4,6 @@ import { allProducts } from "../data";
 import { Element } from 'react-scroll/modules';
 
 export const Catalog = () => {
-
     return (
         <Element id='catalog' name='catalog'>
             <div className='catalog'>

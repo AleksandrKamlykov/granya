@@ -15,13 +15,12 @@ export const ProductItem = () => {
     const dispatch = useDispatch()
 
     const param = useParams();
-    const { id } = param;
+    const { article } = param;
     const [isOpenModal, setIsOpenModal] = useState(false)
+    const [size, setSize] = useState('')
 
-    const openProduct = allProducts.find(elem => elem.id == id);
-    const { name, link, sizes, price, article } = openProduct
-
-
+    const openProduct = allProducts.find(elem => elem.article == article);
+    const { name, link, sizes, price } = openProduct
 
     const otherList = [imgOther1, imgOther2, imgOther3, imgOther4]
 
@@ -34,7 +33,9 @@ export const ProductItem = () => {
     } else document.querySelector('body').style.overflow = 'scroll'
 
     function addtoCart() {
-        dispatch({ type: 'addToCart', payload: { order: openProduct } })
+        const order = { ...openProduct }
+        order.size = size
+        dispatch({ type: 'addToCart', payload: { order } })
     }
     return (
         <>
@@ -70,7 +71,13 @@ export const ProductItem = () => {
 
                         <ul className='size-list'>
                             {
-                                Object.entries(sizes).map((size, i) => (<li key={size[0]}><button className="btn-size"><strong>{size[0]}</strong></button></li>))
+                                Object.entries(sizes).map((size, i) => (
+                                    <li key={size[0]}>
+                                        <input className="radio" value={size[0]} onChange={(e) => setSize(e.target.value)} style={{ visibility: 'hidden', height: 0, margin: 0, padding: 0, position: "absolute" }} type="radio" name="size" id={size[0]} />
+                                        <label htmlFor={size[0]} className="btn-size"><strong>{size[0]}</strong></label >
+
+                                    </li>
+                                ))
                             }
                         </ul>
 

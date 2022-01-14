@@ -13,7 +13,6 @@ import img12 from '../img/catalog/12.jpeg';
 
 export const allProducts = [
     {
-        id: 1,
         name: 'Рубашка для сна голубая',
         link: img1,
         color: '#333',
@@ -27,7 +26,6 @@ export const allProducts = [
         moreColors: [],
     },
     {
-        id: 2,
         name: 'Рубашка для сна хаки',
         link: img2,
         color: '#333',
@@ -41,7 +39,6 @@ export const allProducts = [
         moreColors: [],
     },
     {
-        id: 3,
         name: 'Платье для сна розовое',
         link: img3,
         color: '#333',
@@ -56,7 +53,6 @@ export const allProducts = [
 
     },
     {
-        id: 4,
         name: 'Платье для сна желтое',
         link: img4,
         color: '#333',
@@ -71,7 +67,6 @@ export const allProducts = [
 
     },
     {
-        id: 5,
         name: 'Пижама бежевая',
         link: img5,
         color: '#333',
@@ -86,7 +81,6 @@ export const allProducts = [
 
     },
     {
-        id: 6,
         name: 'Пижама розовая',
         link: img6,
         color: '#333',
@@ -101,7 +95,6 @@ export const allProducts = [
 
     },
     {
-        id: 7,
         name: 'Пижама с топом бежевая',
         link: img7,
         color: '#333',
@@ -116,7 +109,6 @@ export const allProducts = [
 
     },
     {
-        id: 8,
         name: 'Пижама с топом мятная',
         link: img8,
         color: '#333',
@@ -131,7 +123,6 @@ export const allProducts = [
 
     },
     {
-        id: 9,
         name: 'Сарафан для дома оливка',
         link: img9,
         color: '#333',
@@ -146,7 +137,6 @@ export const allProducts = [
 
     },
     {
-        id: 10,
         name: 'Сарафан для дома розовая',
         link: img10,
         color: '#333',
@@ -161,7 +151,6 @@ export const allProducts = [
 
     },
     {
-        id: 11,
         name: 'Костюм для дома голубой',
         link: img11,
         color: '#333',
@@ -176,7 +165,6 @@ export const allProducts = [
 
     },
     {
-        id: 12,
         name: 'Костюм для дома бежевый',
         link: img12,
         color: '#333',

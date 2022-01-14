@@ -8,9 +8,14 @@ export const Cart = () => {
     const order = useSelector(state => state.cartReducer.orders)
     const dispatch = useDispatch()
     const { request, loading } = useHttp()
-
-    function removeItem(article) {
-        dispatch({ type: 'removeFromCart', payload: { removeArticle: article } })
+    function removeItem(article, size) {
+        dispatch({ type: 'removeFromCart', payload: { article, size } })
+    }
+    function inc(article, size) {
+        dispatch({ type: 'increment', payload: { article, size } })
+    }
+    function dec(article, size) {
+        dispatch({ type: 'decrement', payload: { article, size } })
     }
 
     async function submitForm(e) {
@@ -31,23 +36,29 @@ export const Cart = () => {
         await request(`https://api.telegram.org/bot1831614888:AAE41QAzdDu67eYpu-vLPrny0lb4Oy46_TE/sendMessage?chat_id=359806396&text=${res}`)
     }
 
+    function sum(arr) {
+        let res = 0
+        arr.forEach(e => res += (e.price * e.count))
+        return res
+    }
+
     return (
         <div className='cart-wrapper'>
 
             <div>
                 <ul className='order-list'>
                     {
-                        order.map(elem => (<li className='order-item' key={elem.article}>
+                        order.map(elem => (<li className='order-item' key={elem.size + elem.article}>
                             <img className='photo-cart' src={elem.link} alt='Фотография пижамы' />
                             {elem.name}
                             <span><small>{elem.size}</small></span>
-                            <span>{elem.count}<small>шт.</small></span>
+                            <div className='counter'><button onClick={() => inc(elem.article, elem.size)}>+1</button>{elem.count}<small>шт.</small><button onClick={() => dec(elem.article, elem.size)} >-1</button></div>
                             <span>{elem.price} <small>грн.</small></span>
-                            <button onClick={() => removeItem(elem.article)}>X</button></li>))
+                            <button onClick={() => removeItem(elem.article, elem.size)}>X</button></li>))
                     }
                 </ul>
                 {order.length > 0 ?
-                    (<>
+                    (
                         <div className='total'>
 
                             <span>Итого: </span>
@@ -55,7 +66,7 @@ export const Cart = () => {
                                 <strong>
                                     {
                                         order.length > 1
-                                            ? order.reduce((a, b) => (a.price * a.count) + (b.price * b.count))
+                                            ? sum(order)
                                             : order[0].count * order[0].price
                                     }
                                 </strong>
@@ -63,7 +74,7 @@ export const Cart = () => {
 
                         </div>
 
-                    </>)
+                    )
                     : 'У вас нет товарова в коризине'}
             </div>
 

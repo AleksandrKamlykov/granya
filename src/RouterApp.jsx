@@ -9,7 +9,7 @@ export const RouterApp = () => {
     return (
         <Routes>
             <Route path='/' element={<Home />} />
-            <Route path='shop/:id' element={<ProductItem />} />
+            <Route path='shop/:article' element={<ProductItem />} />
             <Route path='cart' element={<Cart />} />
             <Route path='*' element={<Home />} />
         </Routes>

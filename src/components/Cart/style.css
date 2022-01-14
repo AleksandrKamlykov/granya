@@ -134,3 +134,7 @@
     background-color: #fff;
     color: #222;
 }
+
+.counter {
+    display: flex;
+}

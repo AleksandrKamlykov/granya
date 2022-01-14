@@ -3,11 +3,11 @@ import './style.css'
 import { Link } from "react-router-dom";
 
 export const CatalogItem = (props) => {
-    const { link, name, price, id } = props.productItem
+    const { link, name, price, article } = props.productItem
 
     return (
         <>
-            <Link style={{ textTransform: 'none', textDecoration: 'none' }} to={`/shop/${id}`} >
+            <Link style={{ textTransform: 'none', textDecoration: 'none' }} to={`/shop/${article}`} >
                 <div className='catalog-item'>
                     <img src={link} alt='фотография пижамы' />
                     <div className='item-menu'>

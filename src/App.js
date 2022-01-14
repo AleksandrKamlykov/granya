@@ -13,22 +13,18 @@ function App() {
 
   useEffect(() => {
     const cart = JSON.parse(localStorage.getItem('cart')) || []
-    const articles = cart.map(e => e.article)
-
-    allProducts.map(elem => {
-      if (articles.includes(elem.article)) {
-        const item = cart.find(e => e.article === elem.article)
-        let newItem = {
-          ...elem,
-          count: item.count || 1,
-          size: item.size || null
-        }
-
-        dispatch({ type: 'addToCart', payload: { order: newItem } })
+    let newOrder = []
+    cart.forEach(elem => {
+      const item = allProducts.find(e => elem.article === e.article)
+      let newItem = {
+        ...item,
+        size: elem.size || '',
+        count: +elem.count || 1
       }
+      newOrder.push(newItem)
     })
-
-  })
+    dispatch({ type: 'updateCart', payload: { order: newOrder } })
+  }, [])
 
   return (
     <BrowserRouter>

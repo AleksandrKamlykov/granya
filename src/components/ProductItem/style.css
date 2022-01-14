@@ -61,7 +61,6 @@
     grid-template: 20px 1fr/ 15% 85%;
 }
 
-.main-photo {}
 
 .photo {
     width: 100%;
@@ -140,7 +139,14 @@
     box-sizing: border-box;
 }
 
+
 .btn-size:hover {
+    background-color: #fff;
+    color: #222;
+    border: 1px solid #222;
+}
+
+.radio:checked+.btn-size {
     background-color: #fff;
     color: #222;
     border: 1px solid #222;
